@@ -5,7 +5,7 @@ export function mercatorProjection(interestPoint: GeoCoord, centerLongitude: num
     const r = 6371000;
     const latitude = interestPoint.latitude * Math.PI / 180;
     const longitude = interestPoint.longitude * Math.PI / 180;
-    let x = r * (longitude - centerLongitude);
+    let x = r * (longitude - centerLongitude * Math.PI / 180);
     let y = r * Math.log(Math.tan(Math.PI / 4 + latitude / 2));
     return {x: x, y: y};
 }
